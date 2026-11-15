@@ -5,10 +5,12 @@
 
 class Mesh {
     public:
-        unsigned int VAO, EBO, VBO;
+        unsigned int VAO, EBO, VBO[2];
 
         Mesh(std::vector<float>* vertices,
-            std::vector<unsigned int>* indices);
+            std::vector<unsigned int>* indices,
+            std::vector<float>* texturas
+        );
 
         ~Mesh();
 };

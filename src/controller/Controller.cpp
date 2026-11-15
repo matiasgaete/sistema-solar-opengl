@@ -25,5 +25,4 @@ void Controller::procesarEntradas() {
     if(glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) x += 0.01f;
     glm::mat4 localNodoRaiz = modelo->nodoSol.local;
     modelo->nodoSol.local = glm::translate(localNodoRaiz, glm::vec3(x, y, 0.0f));
-    printMat4(modelo->nodoSol.local );
 };

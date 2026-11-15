@@ -6,24 +6,26 @@
 #include "view/Shader.h"
 #include "model/Modelo.h"
 #include "view/Mesh.h"
-#include "model/Nodo.h"
+#include "view/Texture.h"
 
 class View {
     public:
         View(Modelo* modelo, Shader* shader); 
-        void createTextures();
+        Texture createTexture(const char* filePath);
         void createMalla(
             std::vector<float>* vertices,
             std::vector<unsigned int>* indices
         );
         void draw(Nodo* nodo);
         
-    private:
         int alto;
         int ancho;
         Shader* shader;
         Modelo* modelo;
         Mesh meshCirculo;
+        Texture texturaSol;
+        Texture texturaTierra;
+        Texture texturaLuna;
 };
 
 

@@ -7,7 +7,7 @@
 class Texture {
 public:
     unsigned int ID;
-
+    Texture();
     Texture(const char* filePath);
     ~Texture();
 

@@ -14,27 +14,26 @@
 const char* vertexShaderCode = R"(
 #version 330 core
 layout (location = 0) in vec3 aPos;
-layout (location = 1) in vec3 aColor;
+layout (location = 1) in vec2 uv;
 
 uniform mat4 model;
-uniform vec3 bColor;
-out vec3 color;
+out vec2 oUv;
 
 void main() {
     gl_Position = model * vec4(aPos, 1.0);
-    color = bColor;
+    oUv = uv;
 }
 )";
 
 const char* fragmentShaderCode = R"(
 #version 330 core
-in vec3 color;
+in vec2 oUv;
 out vec4 FragColor;
 
 uniform sampler2D miTextura;
 
 void main() {
-    FragColor = vec4(color, 1.0f);
+    FragColor = texture(miTextura, oUv);
 }
 )";
 

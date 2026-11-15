@@ -6,6 +6,7 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <vector>
 #include "model/Object.h"
+#include "view/Texture.h"
 
 class Nodo {
     public:
@@ -17,7 +18,8 @@ class Nodo {
             float distanciaX,
             float distanciaY,
             glm::vec3 color,
-            float razon
+            float razon,
+            bool raiz
         );
         glm::mat4 global = glm::mat4(1.0f);
         glm::mat4 local;
@@ -28,6 +30,8 @@ class Nodo {
         float distanciaY;
         glm::vec3 color;
         float razon;
+        bool raiz;
+        Texture* textura;
 
         void agregarHijo(Nodo* hijo);
         void calcularPosicion(float* time, glm::mat4* globalPadre);

@@ -4,6 +4,9 @@
 #define STB_IMAGE_IMPLEMENTATION
 #include <stb_image.h>
 
+Texture::Texture() {
+}
+
 Texture::Texture(const char* filePath) {
     glGenTextures(1, &ID);
     glBindTexture(GL_TEXTURE_2D, ID);
@@ -16,14 +19,7 @@ Texture::Texture(const char* filePath) {
     stbi_set_flip_vertically_on_load(true);
     int width, height, nrChannels;
     unsigned char *data = stbi_load(filePath, &width, &height, &nrChannels, 4);
-
-    if (data) {
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
-        stbi_image_free(data);
-    } else {
-        std::cerr << "Error al cargar la textura: " << filePath << std::endl;
-        stbi_image_free(data);
-    }
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
 }
 
 Texture::~Texture() {
